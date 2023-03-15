@@ -5,7 +5,7 @@ createApp({
         return {
             activeImg: 0,
             message: 'Hello Vue!',
-            slides : [
+            slides: [
                 {
                     image: 'img/01.webp',
                     title: 'Marvel\'s Spiderman Miles Morale',
@@ -29,21 +29,30 @@ createApp({
                 }]
         }
     },
-    methods:{
-        onClickplus(){
+    methods: {
+        onClickplus() {
             this.activeImg++
-            if(this.activeImg <= this.slides.length - 1){
-        }
-                else{
-                    this.activeImg = 0;
-                }
+            if (this.activeImg <= this.slides.length - 1) {
+            }
+            else {
+                this.activeImg = 0;
+            }
         },
-        onClickminus(){
+        onClickminus() {
             this.activeImg--
-            if(this.activeImg < 0){
-                this.activeImg = this.slides.length-1;
+            if (this.activeImg < 0) {
+                this.activeImg = this.slides.length - 1;
+            }
+        },
+        timer() {
+            setInterval(this.onClickplus, 2000)
+            
         }
-        }
-    }
+    },
+    mounted() {
+        this.timer();
 
-}).mount('#app')
+    }
+}
+
+).mount('#app')
