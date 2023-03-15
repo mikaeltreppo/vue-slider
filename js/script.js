@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            activeImg: 0,
             message: 'Hello Vue!',
             slides : [
                 {
